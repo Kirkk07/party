@@ -13,7 +13,13 @@ public class HomeController {
         return "home";
     }
     @GetMapping ("about")
-    public String about(){
+    public String about(Model model) {
+        String myName = "Thomas";
+        String myStreet= "Van HofTichelen";
+        String myCity = "Antwerpen";
+        model.addAttribute("myName", myName);
+        model.addAttribute("myStreet", myStreet);
+        model.addAttribute("myCity", myCity);
         return "about";
     }@GetMapping ("/home")
     public String homme(){
