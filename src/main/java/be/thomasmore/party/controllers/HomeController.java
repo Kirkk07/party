@@ -10,7 +10,7 @@ import java.time.format.DateTimeFormatter;
 
 @Controller
 public class HomeController {
-    @GetMapping("/")
+    @GetMapping({"/","/home"})
     public String home(Model model) {
         int myCalculatedvalue= 2342*2345;
         model.addAttribute("myCalculatedvalue", myCalculatedvalue);
@@ -26,10 +26,7 @@ public class HomeController {
         model.addAttribute("myCity", myCity);
         return "about";
     }
-    @GetMapping ("/home")
-    public String home(){
-        return "home";
-    }
+
     @GetMapping ("/pay")
     public String pay(Model model){
         LocalDate now = LocalDate.now();
