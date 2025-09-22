@@ -4,6 +4,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 @Controller
 public class HomeController {
     @GetMapping("/")
@@ -12,17 +16,34 @@ public class HomeController {
         model.addAttribute("myCalculatedvalue", myCalculatedvalue);
         return "home";
     }
-    @GetMapping ("about")
+    @GetMapping ("/about")
     public String about(Model model) {
-        String myName = "Thomas";
-        String myStreet= "Van HofTichelen";
+        String myName = "Hasan";
+        String myStreet= "Hof van Tichelen";
         String myCity = "Antwerpen";
         model.addAttribute("myName", myName);
         model.addAttribute("myStreet", myStreet);
         model.addAttribute("myCity", myCity);
         return "about";
-    }@GetMapping ("/home")
-    public String homme(){
-        return "homme07";
     }
+    @GetMapping ("/home")
+    public String home(){
+        return "home";
+    }
+    @GetMapping ("/pay")
+    public String pay(Model model){
+        LocalDate now = LocalDate.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        String formattedNow = now.format(formatter);
+
+        LocalDateTime payDate = LocalDateTime.now().plusDays(30);
+        String formattedDate = payDate.format(formatter);
+        model.addAttribute("payDate", formattedDate);
+        model.addAttribute("now", formattedNow);
+        return "pay";
+    }
+//    @GetMapping ("/kay")
+//    public String kay(){
+//        return "homme07";
+//    }
 }
