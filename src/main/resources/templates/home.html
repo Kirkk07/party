@@ -6,11 +6,25 @@
     <!-- CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
-<h1>Hello</h1>
+<body  class="m-5">
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4 rounded">
+    <div class="container-fluid bg-light">
+        <a class="navbar-brand" th:href="@{home}">Lets Party!</a>
+        <div class="navbar-nav">
+            <a class="nav-link " th:href="@{home}">Home</a>
+            <a class="nav-link active" th:href="@{about}">About</a>
+        </div>
+    </div>
+</nav>
+<h1 class="mb-4">Hello</h1> <!-- margin bottom -->
+
+<div class="navbar-nav mb-3"> <!-- margin bottom -->
+    <a class="nav-link" href="#">Link</a>
+</div>
 <p th:text="${myCalculatedvalue}"></p>
 
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>;
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
