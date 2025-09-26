@@ -39,6 +39,17 @@ public class HomeController {
         model.addAttribute("now", formattedNow);
         return "pay";
     }
+
+    @GetMapping("/pay1")
+    public String pay3(Model model){
+        LocalDate now = LocalDate.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        String formattedNow = now.format(formatter);
+        model.addAttribute("now", now);
+        model.addAttribute("ab", formattedNow);
+
+        return "pay1";
+    }
 //    @GetMapping ("/kay")
 //    public String kay(){
 //        return "homme07";
